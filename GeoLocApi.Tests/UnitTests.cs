@@ -13,7 +13,7 @@ namespace XUnitTestProject2
         [Fact]
         public void GetAllGeoLocationsSHouldReturnSuccess()
         {
-            GeoLocation FirstGeoLoc = new GeoLocation("192.168.1.1", "Ochota", "Poland", "Europe")
+            GeoLocation FirstGeoLoc = new GeoLocation("31.60.48.215", "Ochota", "Poland", "Europe")
             {
                 ID = 1
             };
@@ -35,7 +35,7 @@ namespace XUnitTestProject2
         [Fact]
         public void GetGeoLocationShouldreturnSuccess()
         {
-            GeoLocation FirstGeoLoc = new GeoLocation("192.168.1.1", "Ochota", "Poland", "Europe")
+            GeoLocation FirstGeoLoc = new GeoLocation("31.60.48.215", "Ochota", "Poland", "Europe")
             {
                 ID = 1
             };
@@ -51,13 +51,13 @@ namespace XUnitTestProject2
             context.SaveChanges();
 
             var controller = new GeoLocationsController(context);
-            Task<IActionResult> task = controller.GetGeoLocation("192.168.1.1");
+            Task<IActionResult> task = controller.GetGeoLocation("31.60.48.215");
             Assert.True(task.IsCompletedSuccessfully);
         }
         [Fact]
         public async Task DeleteShouldReturnTrueFor1()
         {
-            GeoLocation FirstGeoLoc = new GeoLocation("192.168.1.1", "Ochota", "Poland", "Europe")
+            GeoLocation FirstGeoLoc = new GeoLocation("31.60.48.215", "Ochota", "Poland", "Europe")
             {
                 ID = 1
             };
@@ -73,7 +73,7 @@ namespace XUnitTestProject2
             context.SaveChanges();
 
             var controller = new GeoLocationsController(context);
-            var taski = controller.DeleteGeoLocation("192.168.1.1");
+            var taski = controller.DeleteGeoLocation("31.60.48.215");
 
             int num = await context.GeoLocations.CountAsync();
             Assert.Equal(1, num);
@@ -81,7 +81,7 @@ namespace XUnitTestProject2
         [Fact]
         public async Task PostShouldReturnTrueFor2()
         {
-            GeoLocation FirstGeoLoc = new GeoLocation("192.168.1.1", "Ochota", "Poland", "Europe")
+            GeoLocation FirstGeoLoc = new GeoLocation("31.60.48.215", "Ochota", "Poland", "Europe")
             {
                 ID = 1
             };
